@@ -1,0 +1,104 @@
+﻿@model MyApp.Core.Models.User
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Open Sans", Arial, Helvetica, sans-serif;
+            background: #005AA7;
+            background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);
+            background: linear-gradient(to right, #FFFDE4, #005AA7);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .contenedor__login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100dvh - 42px);
+        }
+
+        .form__login {
+            height: 300px;
+            width: 500px;
+            border-radius: 15px;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            row-gap: 20px;
+            box-shadow: 4px -6px 115px -9px rgba(0,0,0,0.78);
+            -webkit-box-shadow: 4px -6px 115px -9px rgba(0,0,0,0.78);
+            -moz-box-shadow: 4px -6px 115px -9px rgba(0,0,0,0.78);
+        }
+
+        .espacio__input {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .espacio__input p {
+                font-size: 20px;
+                padding-bottom: 5px;
+            }
+
+            .espacio__input input {
+                font-size: 18px;
+            }
+
+            .espacio__input a {
+                text-decoration: none;
+            }
+
+        .btn__confirmar {
+            background-color: rgb(0, 0, 0);
+            font-weight: bold;
+            color: white;
+            border: none;
+            padding: 7px;
+            border-radius: 10px;
+            margin: 20px 125px 0 125px;
+            font-size: 18px;
+        }
+
+            .btn__confirmar:hover {
+                background-color: rgb(66, 66, 66);
+                transition: background-color 0.5s;
+            }
+    </style>
+</head>
+<body>
+    <div class="contenedor__login">
+        @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form__login" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="espacio__input">
+                <p><strong>Email</strong></p>
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Ingrese su email", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="espacio__input">
+                <p><strong>Contraseña</strong></p>
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Ingrese su contraseña", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <label>@Html.ActionLink("¿Olvidaste tu contraseña?", "ChangePassword", "Users")</label>
+            </div>
+            <input class="btn__confirmar" type="submit" value="Iniciar Sesión">
+        }
+    </div>
+</body>
+</html>

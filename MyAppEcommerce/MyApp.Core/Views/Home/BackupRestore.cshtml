@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "BackupRestore";
+}
+
+<h2>Backup y Restore</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+@if (MyApp.Services.Verificator.HasError(MyApp.Core.Models.Context.Users.ListAll().ToList<MyApp.Interfaces.IEntity>(), "User"))
+{
+    <form action="@Url.Action("RecalculateDVUser", "BackupRestore")" method="post">
+        @if ((MyApp.Services.Verificator.CompareEachRowVerificator(MyApp.Core.Models.Context.Users.ListAll().ToList<MyApp.Interfaces.IEntity>(), "User")).Count > 0)
+        {
+            <p>
+                Problemas en la base de datos en la tabla Productos. USUARIOS CAMBIADOS ID: @string.Join(",", MyApp.Services.Verificator.CompareEachRowVerificator(MyApp.Core.Models.Context.Users.ListAll().ToList<MyApp.Interfaces.IEntity>(), "User"))
+            </p>
+        }
+        @if ((MyApp.Services.Verificator.CompareIfDeleteRowVerificator(MyApp.Core.Models.Context.Users.ListAll().ToList<MyApp.Interfaces.IEntity>(), "User").Count > 0))
+        {
+            <p>
+                Problemas en la base de datos en la tabla Productos. USUARIOS ELIMINADOS ID: @string.Join(",", MyApp.Services.Verificator.CompareIfDeleteRowVerificator(MyApp.Core.Models.Context.Users.ListAll().ToList<MyApp.Interfaces.IEntity>(), "User"))
+            </p>
+        }
+        <button type="submit" class="btn btn-danger">Recalcular código verificador</button>
+    </form>
+    <br />
+    <br />
+}
+
+@if (MyApp.Services.Verificator.HasError(MyApp.Core.Models.Context.Products.ListAll().ToList<MyApp.Interfaces.IEntity>(), "Product"))
+{
+    <form action="@Url.Action("RecalculateDVProduct", "BackupRestore")" method="post">
+        @if ((MyApp.Services.Verificator.CompareEachRowVerificator(MyApp.Core.Models.Context.Products.ListAll().ToList<MyApp.Interfaces.IEntity>
+       (), "Product")).Count > 0)
+        {
+            <p>
+                Problemas en la base de datos en la tabla Productos. PRODUCTOS CAMBIADOS ID: @string.Join(",", MyApp.Services.Verificator.CompareEachRowVerificator(MyApp.Core.Models.Context.Products.ListAll().ToList<MyApp.Interfaces.IEntity>(), "Product"))
+            </p>
+        }
+        @if ((MyApp.Services.Verificator.CompareIfDeleteRowVerificator(MyApp.Core.Models.Context.Products.ListAll().ToList<MyApp.Interfaces.IEntity>
+           (), "Product").Count > 0))
+        {
+            <p>
+                Problemas en la base de datos en la tabla Productos. PRODUCTOS ELIMINADOS ID: @string.Join(",", MyApp.Services.Verificator.CompareIfDeleteRowVerificator(MyApp.Core.Models.Context.Products.ListAll().ToList<MyApp.Interfaces.IEntity>(), "Product"))
+            </p>
+        }
+        <button type="submit" class="btn btn-danger">Recalcular código verificador</button>
+    </form>
+    <br />
+    <br />
+}
+
+<form action="@Url.Action("Backup", "BackupRestore")" method="post">
+    <button type="submit" class="btn btn-primary">Realizar Backup</button>
+</form>
+
+<form action="@Url.Action("Restore", "BackupRestore")" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="backupFile">Seleccionar archivo de backup (.bak):</label>
+        <input type="file" id="backupFile" name="pBackup" class="form-control" accept=".bak" />
+    </div>
+    <button type="submit" class="btn btn-warning">Realizar Restore</button>
+</form>
+
+
