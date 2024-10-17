@@ -49,7 +49,7 @@ namespace MyApp.Core.Controllers
             if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
             InitializeUser();
 
-            if (pUser.Role == "webmaster" || pUser.Role == "admin")
+            if (pUser.Role == "webmaster" || pUser.Role == "admin" || pUser.Role == "User")
             {
                 List<Product> product = Context.Products.ListAll();
                 ViewBag.CardProducts = product;

@@ -36,7 +36,7 @@ namespace MyApp.Core.Controllers
             if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
             InitializeUser();
 
-            if (pUser.Role == "webmaster" || pUser.Role == "user")
+            if (pUser.Role == "webmaster" || pUser.Role == "User")
             {
                 ViewBag.Products = products;
                 ViewBag.Items = cartService.GetCart().GetItems();
