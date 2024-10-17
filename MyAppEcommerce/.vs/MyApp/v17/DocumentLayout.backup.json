@@ -1,12 +1,27 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Codigo - TP Desarrollo y Arquitecturas web\\MyAppEcommerce\\",
+  "WorkspaceRootPath": "D:\\Codigo - Metodologias y Desarrollos Web\\Metodologias-y-Desarrollos-Web\\MyAppEcommerce\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
