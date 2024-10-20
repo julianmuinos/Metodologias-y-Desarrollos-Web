@@ -1,0 +1,12 @@
+D:\Codigo - TP Desarrollo y Arquitecturas web\MyAppEcommerce\MyApp.DAL\bin\Debug\MyApp.DAL.dll
+D:\Codigo - TP Desarrollo y Arquitecturas web\MyAppEcommerce\MyApp.DAL\bin\Debug\MyApp.DAL.pdb
+D:\Codigo - TP Desarrollo y Arquitecturas web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.csproj.AssemblyReference.cache
+D:\Codigo - TP Desarrollo y Arquitecturas web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.csproj.CoreCompileInputs.cache
+D:\Codigo - TP Desarrollo y Arquitecturas web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.dll
+D:\Codigo - TP Desarrollo y Arquitecturas web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.pdb
+D:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.DAL\bin\Debug\MyApp.DAL.dll
+D:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.DAL\bin\Debug\MyApp.DAL.pdb
+D:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.csproj.AssemblyReference.cache
+D:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.csproj.CoreCompileInputs.cache
+D:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.dll
+D:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.DAL\obj\Debug\MyApp.DAL.pdb

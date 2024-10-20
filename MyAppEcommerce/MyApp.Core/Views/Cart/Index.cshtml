@@ -1,0 +1,101 @@
+﻿@model MyApp.Core.Models.Cart
+
+@{
+    ViewBag.Title = "Carrito de Compras";
+}
+
+<h2>Carrito de Compras</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MyApp.Core.Models.Item item in ViewBag.Items)
+        {
+            <tr>
+                <td><img src="@item.Product.ImageURL" class="card-img-top" alt="@item.Product.ImageURL" /></td>
+                <td>@item.Product.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.Product.Price.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("es-AR"))</td>
+                <td>@item.Total.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("es-AR"))</td>
+                <td class="d-flex justify-content-around">
+                    <a href="@Url.Action("AddItem", "Cart", new { userId = Model.User.Id, productId = item.Product.Id })" class="btn btn-success">
+                        <i class="bi bi-plus"></i>
+                    </a>
+                    <a href="@Url.Action("SubtractItem", "Cart", new { userId = Model.User.Id, productId = item.Product.Id })" class="btn-warning">
+                        <i class="bi bi-dash"></i>
+                    </a>
+                    <a href="@Url.Action("RemoveItem", "Cart", new { userId = Model.User.Id, productId = item.Product.Id })" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Total: @Model.Total.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("es-AR"))</h3>
+<div class="form-actions no-color">
+    <form id="confirmarCompraForm" method="post">
+        <input type="hidden" name="cart" value="@Model.Id" />
+        <input type="hidden" name="user" value="@Model.User" />
+        <input type="hidden" name="date" value="@Model.Date" />
+        <input id="confirmarCompraBtn" type="button" value="Confirmar compra" class="btn btn-primary" />
+    </form>
+
+    <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmacionModalLabel">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Compra confirmada. Gracias por su compra.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function mostrarConfirmacion() {
+        $('#confirmacionModal').modal('show');
+    }
+
+    $('#confirmarCompraBtn').on('click', function () {
+        $.ajax({
+            type: 'POST',
+            url: '/CartService.asmx/ConfirmPurchase',
+            data: $('#confirmarCompraForm').serialize(),
+            success: function () {
+                mostrarConfirmacion();
+                limpiarCarrito();
+            },
+            error: function () {
+                alert('Error al confirmar la compra.');
+            }
+        });
+    });
+
+    function limpiarCarrito() {
+        $('#confirmarCompraForm').trigger("reset");
+        $('tbody').empty();
+        $('h3').text('Total: $0');
+    }    
+</script>

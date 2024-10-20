@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MyApp.Core.Models.Product>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h2>Product List</h2>
+
+<div class="container">
+    <div class="row">
+        @foreach (MyApp.Core.Models.Product item in ViewBag.CardProducts)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@item.ImageURL" class="card-img-top" alt="@item.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Category)</h6>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p class="card-text"><strong>Price: </strong>$@Html.DisplayFor(modelItem => item.Price)</p>
+
+                        <form action="@Url.Action("AddItem", "Cart")" method="post">
+                            <input type="hidden" name="productId" value="@item.Id" />
+                            <div class="form-group">
+                                <label for="quantity_@item.Id"><strong>Cantidad</strong></label>
+                                <input type="number" name="quantity" id="quantity_@item.Id" class="form-control" value="1" min="1" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+         }
+    </div>
+</div>
