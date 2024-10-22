@@ -40,9 +40,10 @@
                             <li>@Html.ActionLink("Productos", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Bitacora", "Log", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("BackupRestore", "BackupRestore", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Historial Ventas", "SalesHistory", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
                         }
 
-                        if(MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Role == "admin")
+                        if (MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Role == "admin")
                         {
                             <li>@Html.ActionLink("Usuarios", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Productos", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>

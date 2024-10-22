@@ -1,1 +1,55 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Carts>
+  <Cart>
+    <Usuario>
+      <Nombre>julimuinos</Nombre>
+      <Email>julian@gmail.com</Email>
+    </Usuario>
+    <Fecha>22/10/2024 17:34:31</Fecha>
+    <Items>
+      <Item>
+        <Producto>Buzo Nike</Producto>
+        <Precio>1000</Precio>
+        <Cantidad>1</Cantidad>
+      </Item>
+      <Item>
+        <Producto>Buzo Nike Oversize</Producto>
+        <Precio>280000</Precio>
+        <Cantidad>1</Cantidad>
+      </Item>
+    </Items>
+  </Cart>
+  <Cart>
+    <Usuario>
+      <Nombre>julimuinos</Nombre>
+      <Email>julian@gmail.com</Email>
+    </Usuario>
+    <Fecha>22/10/2024 17:38:24</Fecha>
+    <Items>
+      <Item>
+        <Producto>Buzo Nike</Producto>
+        <Precio>1000</Precio>
+        <Cantidad>2</Cantidad>
+      </Item>
+      <Item>
+        <Producto>Buzo Nike Oversize</Producto>
+        <Precio>280000</Precio>
+        <Cantidad>2</Cantidad>
+      </Item>
+    </Items>
+  </Cart>
+  <Cart>
+    <Usuario>
+      <Nombre>julimuinos</Nombre>
+      <Email>julian@gmail.com</Email>
+    </Usuario>
+    <Fecha>22/10/2024 17:48:10</Fecha>
+    <Items>
+      <Item>
+        <Producto>Buzo Nike</Producto>
+        <Precio>1000</Precio>
+        <Cantidad>1</Cantidad>
+      </Item>
+    </Items>
+  </Cart>
+</Carts>

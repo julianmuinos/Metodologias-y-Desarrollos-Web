@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using static MyApp.Core.Models.Context;
 
 namespace MyApp.Core.Controllers
@@ -41,6 +42,24 @@ namespace MyApp.Core.Controllers
                 ViewBag.Products = products;
                 ViewBag.Items = cartService.GetCart().GetItems();
                 return View(cartService.GetCart());
+            }
+
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public ActionResult SalesHistory()
+        {
+            if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
+            InitializeUser();
+
+            if (pUser.Role == "webmaster")
+            {
+                string rutaXML = Server.MapPath("~/Cart.xml");
+                XDocument xmlDocumento = XDocument.Load(rutaXML);
+                return View(xmlDocumento);
             }
 
             else

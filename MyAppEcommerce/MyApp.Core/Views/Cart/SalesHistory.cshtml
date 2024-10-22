@@ -1,0 +1,123 @@
+﻿@model System.Xml.Linq.XDocument
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+
+        h2, h3, h4 {
+            color: #333;
+        }
+
+        .cart-container {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .separator {
+            border-bottom: 2px solid #007bff;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .total {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Carrito de compras</h2>
+
+    @{
+        decimal totalGeneral = 0;
+    }
+
+    @foreach (var carrito in Model.Root.Elements("Cart"))
+    {
+        <div class="cart-container">
+            <h3>Información del Usuario</h3>
+            <ul>
+                <li><strong>Nombre:</strong> @carrito.Element("Usuario").Element("Nombre").Value</li>
+                <li><strong>Email:</strong> @carrito.Element("Usuario").Element("Email").Value</li>
+            </ul>
+
+            <h4>Fecha de la compra: @carrito.Element("Fecha").Value</h4>
+
+            <h4>Items comprados:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        decimal totalCompra = 0;
+                    }
+
+                    @foreach (var item in carrito.Element("Items").Elements("Item"))
+                    {
+                        var precio = Convert.ToDecimal(item.Element("Precio").Value);
+                        var cantidad = Convert.ToInt32(item.Element("Cantidad").Value);
+                        var subtotal = precio * cantidad;
+                        totalCompra += subtotal;
+
+                        <tr>
+                            <td>@item.Element("Producto").Value</td>
+                            <td>@precio.ToString("C")</td>
+                            <td>@cantidad</td>
+                            <td>@subtotal.ToString("C")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <h4 class="total">Total por esta compra: @totalCompra.ToString("C")</h4>
+
+            @{
+                totalGeneral += totalCompra;
+            }
+        </div>
+
+        <div class="separator"></div>
+    }
+    <h3 class="total">Total de todas las compras: @totalGeneral.ToString("C")</h3>
+</body>
+</html>
