@@ -13,9 +13,18 @@ namespace MyApp.Services
     public static class Logger
     {
         static ArrayList _al = new ArrayList();
-        public static DataTable GetLogs()
+        public static DataTable GetLogs(DateTime startDate, DateTime endDate)
         {
-            try { return DAO.Leer("sp_Log_List"); }
+            try 
+            {
+                ArrayList parametros = new ArrayList
+                {
+                    new SqlParameter("@startDate", startDate),
+                    new SqlParameter("@endDate", endDate)
+                };
+
+                return DAO.Leer("sp_Log_List", parametros);
+            }
             catch (Exception ex) { throw ex; }
         }
         public static void AddLog(string logMessage, int logCriticity, string userEmail)

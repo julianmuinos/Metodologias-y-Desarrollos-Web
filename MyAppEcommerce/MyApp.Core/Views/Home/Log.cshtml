@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Log";
 }
 
@@ -12,23 +11,46 @@
 </head>
 <body>
     <h1>Logger</h1>
+
+    <form method="get" action="@Url.Action("Log")">
+        <label for="startDate">Fecha Inicio:</label>
+        <input type="date" id="startDate" name="startDate" value="@Request["startDate"]" />
+
+        <label for="endDate">Fecha Fin:</label>
+        <input type="date" id="endDate" name="endDate" value="@Request["endDate"]" />
+
+        <button type="submit">Filtrar</button>
+    </form>
+
     <table class="table">
-        <tr>
-            <th>Time</th>
-            <th>Message</th>
-            <th>User</th>
-            <th>Criticity</th>
-        </tr>
-        @foreach (System.Data.DataRow row in MyApp.Services.Logger.GetLogs().Rows)
-        {
+        <thead>
             <tr>
-                <td>@row[2].ToString()</td>
-                <td>@row[0].ToString()</td>
-                <td>@row[3].ToString()</td>
-                <td>@row[1].ToString()</td>
+                <th>Time</th>
+                <th>Message</th>
+                <th>User</th>
+                <th>Criticity</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @if (ViewBag.Logs != null)
+            {
+                foreach (System.Data.DataRow row in ViewBag.Logs.Rows)
+                {
+                    <tr>
+                        <td>@row["Time"].ToString()</td>
+                        <td>@row["Message"].ToString()</td>
+                        <td>@row["EmailUser"].ToString()</td>
+                        <td>@row["Criticity"].ToString()</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">No hay registros disponibles.</td>
+                </tr>
+            }
+        </tbody>
     </table>
 </body>
 </html>
-

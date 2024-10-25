@@ -39,16 +39,26 @@ namespace MyApp.Core.Controllers
             }
         }
 
-        public ActionResult Log()
+        public ActionResult Log(DateTime? startDate, DateTime? endDate)
         {
             if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
             InitializeUser();
 
             if (pUser.Role == "webmaster" || pUser.Role == "admin")
             {
+                if (startDate == null)
+                {
+                    startDate = DateTime.Now.AddDays(-30);
+                }
+                if (endDate == null)
+                {
+                    endDate = DateTime.Now;
+                }
+
+                var logs = MyApp.Services.Logger.GetLogs(startDate.Value, endDate.Value);
+                ViewBag.Logs = logs;
                 return View();
             }
-
             else
             {
                 return RedirectToAction("Index", "Home");

@@ -31,3 +31,14 @@ D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyA
 D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Se.48D4330E.Up2Date
 D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.dll
 D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.pdb
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Services.dll
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Services.pdb
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.DAL.dll
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Interfaces.dll
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.DAL.pdb
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Interfaces.pdb
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.csproj.AssemblyReference.cache
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.csproj.CoreCompileInputs.cache
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Se.48D4330E.Up2Date
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.dll
+C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.pdb

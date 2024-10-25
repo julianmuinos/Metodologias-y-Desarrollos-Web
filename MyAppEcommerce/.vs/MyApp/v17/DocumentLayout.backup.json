@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Codigo TP - Metodologias y Desarrollos Web\\Metodologias-y-Desarrollos-Web\\MyAppEcommerce\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Codigo - Metodologias y Desarrollos Web\\Metodologias-y-Desarrollos-Web\\MyAppEcommerce\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77C24CA5-1889-459A-90D8-95AD04BDD577}|MyApp.Core\\MyApp.Core.csproj|c:\\codigo - metodologias y desarrollos web\\metodologias-y-desarrollos-web\\myappecommerce\\myapp.core\\views\\home\\log.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{77C24CA5-1889-459A-90D8-95AD04BDD577}|MyApp.Core\\MyApp.Core.csproj|solutionrelative:myapp.core\\views\\home\\log.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,19 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Log.cshtml",
+              "DocumentMoniker": "C:\\Codigo - Metodologias y Desarrollos Web\\Metodologias-y-Desarrollos-Web\\MyAppEcommerce\\MyApp.Core\\Views\\Home\\Log.cshtml",
+              "RelativeDocumentMoniker": "MyApp.Core\\Views\\Home\\Log.cshtml",
+              "ToolTip": "C:\\Codigo - Metodologias y Desarrollos Web\\Metodologias-y-Desarrollos-Web\\MyAppEcommerce\\MyApp.Core\\Views\\Home\\Log.cshtml",
+              "RelativeToolTip": "MyApp.Core\\Views\\Home\\Log.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T14:10:17.425Z",
+              "EditorCaption": ""
             }
           ]
         }
