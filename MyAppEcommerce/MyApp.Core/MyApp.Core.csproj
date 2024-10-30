@@ -206,6 +206,8 @@
     <Content Include="Views\Home\BackupRestore.cshtml" />
     <Content Include="Views\Home\MessageError.cshtml" />
     <Content Include="Views\Cart\SalesHistory.cshtml" />
+    <Content Include="Views\Shared\Modal.cshtml" />
+    <Content Include="Views\Users\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

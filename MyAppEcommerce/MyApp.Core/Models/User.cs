@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
 
 namespace MyApp.Core.Models
 {
@@ -30,6 +31,13 @@ namespace MyApp.Core.Models
         [Display(Name = "Role")]
         [Required(ErrorMessage = "Insert an role")]
         public string Role { get; set; }
+
+        [Display(Name = "Blocked")]
+        public bool Blocked { get; set; }
+
+        [Display(Name = "Attemps")]
+        public ushort Attemps { get; set; }
+
         public User() { }
         public User(object[] ItemArray)
         {
@@ -38,6 +46,8 @@ namespace MyApp.Core.Models
             Email = ItemArray[2].ToString();
             Password = ItemArray[3].ToString();
             Role = ItemArray[4].ToString();
+            Blocked = bool.Parse(ItemArray[5].ToString());
+            Attemps = ushort.Parse(ItemArray[6].ToString());
         }
     }
 }

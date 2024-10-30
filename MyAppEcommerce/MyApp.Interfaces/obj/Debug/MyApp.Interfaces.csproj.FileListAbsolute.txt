@@ -16,3 +16,9 @@ D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyA
 D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.csproj.CoreCompileInputs.cache
 D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.dll
 D:\Codigo TP - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.pdb
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\bin\Debug\MyApp.Interfaces.dll
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\bin\Debug\MyApp.Interfaces.pdb
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.csproj.AssemblyReference.cache
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.dll
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Interfaces\obj\Debug\MyApp.Interfaces.pdb

@@ -64,8 +64,31 @@ namespace MyApp.Core.Models
                     _al.Add(new SqlParameter("@username", SqlDbType.NVarChar) { Value = pUser.Username });
                     _al.Add(new SqlParameter("@email", SqlDbType.NVarChar) { Value = pUser.Email });
                     _al.Add(new SqlParameter("@role", SqlDbType.NVarChar) { Value = pUser.Role });
+                    _al.Add(new SqlParameter("@password", SqlDbType.NVarChar) { Value = pUser.Password });
                     DAO.Escribir("sp_User_Modify", _al);
                     return "User modified succesfully";
+                }
+                catch (Exception) { throw; }
+                finally { _al.Clear(); }
+            }
+            public static string SubtractAttemp(User pUser)
+            {
+                try
+                {
+                    _al.Add(new SqlParameter("@id_usuario", SqlDbType.Int) { Value = pUser.Id });
+                    DAO.Escribir("sp_User_Subtract_Attemp", _al);
+                    return "Attemps subtracted succesfully";
+                }
+                catch (Exception) { throw; }
+                finally { _al.Clear(); }
+            }
+            public static string Unblock(User pUser)
+            {
+                try
+                {
+                    _al.Add(new SqlParameter("@id_usuario", SqlDbType.Int) { Value = pUser.Id });
+                    DAO.Escribir("sp_User_Unblock", _al);
+                    return "User unblocked succesfully";
                 }
                 catch (Exception) { throw; }
                 finally { _al.Clear(); }
@@ -174,7 +197,7 @@ namespace MyApp.Core.Models
 
                     _al.Clear();
 
-                    foreach(Item i in pCart.GetItems())
+                    foreach (Item i in pCart.GetItems())
                     {
                         _al.Add(new SqlParameter("@cartId", SqlDbType.Int) { Value = Carts.ListAll().Last().Id });
                         _al.Add(new SqlParameter("@quantity", SqlDbType.Int) { Value = (int)i.Quantity });

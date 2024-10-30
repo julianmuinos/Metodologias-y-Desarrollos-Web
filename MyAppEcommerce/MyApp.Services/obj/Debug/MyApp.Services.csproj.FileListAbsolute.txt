@@ -42,3 +42,14 @@ C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppE
 C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Se.48D4330E.Up2Date
 C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.dll
 C:\Codigo - Metodologias y Desarrollos Web\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.pdb
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Services.dll
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Services.pdb
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.DAL.dll
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Interfaces.dll
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.DAL.pdb
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\bin\Debug\MyApp.Interfaces.pdb
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.csproj.AssemblyReference.cache
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.csproj.CoreCompileInputs.cache
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Se.48D4330E.Up2Date
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.dll
+C:\Users\franc\Desktop\Metodologias-y-Desarrollos-Web\MyAppEcommerce\MyApp.Services\obj\Debug\MyApp.Services.pdb
