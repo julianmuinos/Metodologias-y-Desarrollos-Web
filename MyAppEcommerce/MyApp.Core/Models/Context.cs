@@ -92,6 +92,18 @@ namespace MyApp.Core.Models
                 catch (Exception) { throw; }
                 finally { _al.Clear(); }
             }
+            public static string ChangePassword(User pUser)
+            {
+                try
+                {
+                    _al.Add(new SqlParameter("@UserId", SqlDbType.Int) { Value = pUser.Id });
+                    _al.Add(new SqlParameter("@password", SqlDbType.Int) { Value = pUser.Password });
+                    DAO.Escribir("sp_User_ChangePassword", _al);
+                    return "User unblocked succesfully";
+                }
+                catch (Exception) { throw; }
+                finally { _al.Clear(); }
+            }
         }
         public static class Products
         {
