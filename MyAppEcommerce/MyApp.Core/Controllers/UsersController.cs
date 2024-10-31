@@ -242,6 +242,12 @@ namespace MyApp.Core.Controllers
                         return View(pUser);
                     }
                 }
+                else
+                {
+                    ViewBag.ModalTitle = "Acceso Denegado";
+                    ViewBag.ModalMessage = "El mail indicado no existe. Registrese.";
+                    return View(pUser);
+                }
             }
             return View(pUser);
         }

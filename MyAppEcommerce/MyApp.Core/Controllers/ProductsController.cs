@@ -140,12 +140,17 @@ namespace MyApp.Core.Controllers
                 InitializeUser();
                 if (ModelState.IsValid)
                 {
+                    var producto = Context.Products.ListAll().FirstOrDefault(p => p.Id == pProduct.Id);
                     if (pImagenArchivo != null && pImagenArchivo.ContentLength > 0)
                     {
                         var fileName = Path.GetFileName(pImagenArchivo.FileName);
                         var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
                         pImagenArchivo.SaveAs(path);
                         pProduct.ImageURL = "/Images/" + fileName;
+                    }
+                    else
+                    {
+                        pProduct.ImageURL = producto.ImageURL;
                     }
                     Context.Products.Modify(pProduct);
                     Verificator.SetVerificator(Context.Products.ListAll().ToList<IEntity>(), "Product");

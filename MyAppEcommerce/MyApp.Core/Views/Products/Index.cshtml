@@ -1,63 +1,111 @@
-﻿@model IEnumerable<MyApp.Core.Models.Product>
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Lista de Productos</title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            border: none;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-outline-danger {
+            color: #dc3545;
+            background-color: transparent;
+            border: 1px solid #dc3545;
+            padding: 6px 12px;
+        }
+    </style>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
-    </p>
+    <div class="header">
+        <h2>Productos</h2>
+        @Html.ActionLink("Crear", "Create", "", new { @class = "btn btn-success" })
+    </div>
+
     <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                Image
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (MyApp.Core.Models.Product item in ViewBag.Products){
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.ImageURL))
-                    {
-                        <img src="@Url.Content(item.ImageURL)" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
-                    }
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-                </td>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
             </tr>
-         }
-
+        </thead>
+        <tbody>
+            @foreach (MyApp.Core.Models.Product item in ViewBag.Products)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ImageURL))
+                        {
+                            <img src="@Url.Content(item.ImageURL)" alt="Imagen del Producto" style="max-width: 100px; max-height: 100px;" />
+                        }
+                        else
+                        {
+                            <span>Sin Imagen</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </body>
 </html>
