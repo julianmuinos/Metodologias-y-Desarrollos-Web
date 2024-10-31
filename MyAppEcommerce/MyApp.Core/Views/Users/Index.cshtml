@@ -1,56 +1,107 @@
 ﻿@model IEnumerable<MyApp.Core.Models.User>
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Role)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (MyApp.Core.Models.User item in ViewBag.Users)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Username)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Role)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-
-                    @if (item.Blocked)
-                    {
-                        <form action="@Url.Action("Unblock", "Users", new { id = item.Id })" method="post" style="display:inline;">
-                            <button type="submit" class="btn btn-outline-danger">Unblock</button>
-                        </form>
-                    }
-                </td>
-            </tr>
+    <title>Lista de Usuarios</title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            border: none;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-outline-danger {
+            color: #dc3545;
+            background-color: transparent;
+            border: 1px solid #dc3545;
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Usuarios</h2>
+        @Html.ActionLink("Crear", "Create", "", new { @class = "btn btn-success" })
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MyApp.Core.Models.User item in ViewBag.Users)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Username)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Role)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+
+                        @if (item.Blocked)
+                        {
+                            <form action="@Url.Action("Unblock", "Users", new { id = item.Id })" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-outline-danger">Desbloquear</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </body>
 </html>

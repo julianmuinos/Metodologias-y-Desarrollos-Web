@@ -1,57 +1,118 @@
 ﻿@model MyApp.Core.Models.User
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
-</head>
-<body>
-    <h2>Register</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
+<style>
+    .contenedor__registro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        padding: 20px;
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    .form__registro {
+        width: 100%;
+        max-width: 400px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 30px 40px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
 
-</body>
-</html>
+        .form__registro h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+    .espacio__input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+        .espacio__input p {
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 2px;
+        }
+
+    .form-control {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        width: 100%;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #005AA7;
+            box-shadow: 0 0 5px rgba(0, 90, 167, 0.2);
+        }
+
+    .btn__confirmar {
+        background-color: #005AA7;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        width: 100%;
+        align-self: center;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+    }
+
+        .btn__confirmar:hover {
+            background-color: #004080;
+        }
+
+    .text-danger {
+        color: #d9534f;
+        font-size: 14px;
+    }
+</style>
+
+<div class="contenedor__registro">
+    @using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @class = "form__registro" }))
+    {
+        @Html.AntiForgeryToken()
+        <h2>Registro</h2>
+
+        <div class="espacio__input">
+            <p>Nombre de Usuario</p>
+            @Html.TextBoxFor(m => m.Username, new { placeholder = "Ingrese su nombre de usuario", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="espacio__input">
+            <p>Email</p>
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Ingrese su email", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="espacio__input">
+            <p>Contraseña</p>
+            @Html.PasswordFor(m => m.Password, new { placeholder = "Ingrese su contraseña", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <input class="btn__confirmar" type="submit" value="Registrar">
+    }
+</div>
+
+@if (!string.IsNullOrEmpty(ViewBag.ModalMessage))
+{
+    @Html.Partial("~/Views/Shared/Modal.cshtml")
+    <script>showModal();</script>
+}

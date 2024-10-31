@@ -77,7 +77,7 @@ namespace MyApp.Core.Controllers
         }
 
         // GET: Users/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
             InitializeUser();
@@ -119,7 +119,7 @@ namespace MyApp.Core.Controllers
         }
 
         // GET: Users/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
             if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
             InitializeUser();
@@ -149,9 +149,10 @@ namespace MyApp.Core.Controllers
             try
             {
                 if (MyApp.Services.Session.GetInstance == null) return RedirectToAction("Login", "Users");
-                Context.Users.Delete(pUser.Id);
+                var user = Context.Users.ListAll().FirstOrDefault(u => u.Id == pUser.Id);
+                Context.Users.Delete(user.Id);
                 Verificator.SetVerificator(Context.Users.ListAll().ToList<IEntity>(), "User");
-                Logger.AddLog("User deleted", 2, pUser.Email);
+                Logger.AddLog("User deleted", 2, user.Email);
                 return RedirectToAction("Index", "Users");
             }
             catch

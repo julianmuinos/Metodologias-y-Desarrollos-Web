@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -8,15 +8,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
     <title>Bahamas Store</title>
     <style>
-        .ubicado__derecha {
-            margin-left: auto;
+
+        body {
+            font-family: "Open Sans", Arial, Helvetica, sans-serif;
         }
+
+        #navbar {
+            padding: 1rem 1.5rem;
+        }
+
+            #navbar .navbar-brand {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #f8f9fa !important;
+            }
+
+            #navbar .navbar-nav .nav-link {
+                font-size: 1.1rem;
+                padding: 0.5rem 1rem;
+                color: #f8f9fa;
+            }
+
+            #navbar .navbar-nav .ubicado__derecha {
+                margin-left: auto;
+            }
+
+            #navbar .navbar-nav .nav-link:hover {
+                color: #ffc107;
+            }
+
+        /* Estilos generales del contenido */
+        .body-content {
+            margin-top: 1.5rem;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+
+            footer p {
+                margin: 0;
+            }
     </style>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
             @Html.ActionLink("Bahamas Store", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
@@ -27,36 +72,33 @@
                 <ul class="navbar-nav flex-grow-1">
                     @if (MyApp.Services.Session.GetInstance == null)
                     {
-                        <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="ubicado__derecha">@Html.ActionLink("Login", "Login", "Users", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Registrarse", "Register", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ubicado__derecha">@Html.ActionLink("Login", "Login", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Registrarse", "Register", "Users", new { area = "" }, new { @class = "nav-link" })</li>
                     }
-
                     else
                     {
                         if (MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Role == "webmaster")
                         {
-                            <li>@Html.ActionLink("Usuarios", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Productos", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Bitacora", "Log", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("BackupRestore", "BackupRestore", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Historial Ventas", "SalesHistory", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Usuarios", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Productos", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Bitacora", "Log", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("BackupRestore", "BackupRestore", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Historial Ventas", "SalesHistory", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
                         }
-
-                        if (MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Role == "admin")
+                        else if (MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Role == "admin")
                         {
-                            <li>@Html.ActionLink("Usuarios", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Productos", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Bitacora", "Log", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Usuarios", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Productos", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Bitacora", "Log", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         }
-
                         else
                         {
-                            <li>@Html.ActionLink("Catalogo", "CardsProducts", "Products", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Carrito", "Index", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Catálogo", "CardsProducts", "Products", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Carrito", "Index", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
                         }
-                        <li class="nav-link ubicado__derecha">Bienvenido @MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Username!</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item nav-link ubicado__derecha">Bienvenido @MyApp.Core.Models.Context.Users.ListAll().Find(x => x.Id == MyApp.Services.Session.GetInstance.id).Username!</li>
+                        <li class="nav-item">@Html.ActionLink("Logout", "Logout", "Users", new { area = "" }, new { @class = "nav-link" })</li>
                     }
                 </ul>
             </div>
@@ -66,7 +108,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Bahamas Store</p>
+            <p>&copy; @DateTime.Now.Year - Bahamas Store. Todos los derechos reservados.</p>
         </footer>
     </div>
 
