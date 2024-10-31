@@ -33,7 +33,7 @@ namespace MyApp.Services
             {
                 _al.Add(new SqlParameter("@message", SqlDbType.NVarChar) { Value = logMessage });
                 _al.Add(new SqlParameter("@criticity", SqlDbType.Int) { Value = logCriticity });
-                _al.Add(new SqlParameter("@time", SqlDbType.Date) { Value = DateTime.Now });
+                _al.Add(new SqlParameter("@time", SqlDbType.DateTime) { Value = DateTime.Now });
                 _al.Add(new SqlParameter("@EmailUser", SqlDbType.NVarChar) { Value = userEmail });
                 DAO.Escribir("sp_Log_Add", _al);
             }

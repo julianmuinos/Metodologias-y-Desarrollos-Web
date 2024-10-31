@@ -310,7 +310,7 @@ namespace MyApp.Core.Controllers
                 else
                 {
                     user.Password = Crypto.Parse(pUser.Password);
-                    Context.Users.Modify(user);
+                    Context.Users.ChangePassword(user);
                     Logger.AddLog("User changed password in", 1, user.Email);
                     Verificator.SetVerificator(Context.Users.ListAll().ToList<IEntity>(), "User");
                     return RedirectToAction("Login", "Users");

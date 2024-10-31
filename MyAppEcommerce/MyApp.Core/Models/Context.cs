@@ -64,7 +64,6 @@ namespace MyApp.Core.Models
                     _al.Add(new SqlParameter("@username", SqlDbType.NVarChar) { Value = pUser.Username });
                     _al.Add(new SqlParameter("@email", SqlDbType.NVarChar) { Value = pUser.Email });
                     _al.Add(new SqlParameter("@role", SqlDbType.NVarChar) { Value = pUser.Role });
-                    _al.Add(new SqlParameter("@password", SqlDbType.NVarChar) { Value = pUser.Password });
                     DAO.Escribir("sp_User_Modify", _al);
                     return "User modified succesfully";
                 }
@@ -88,6 +87,18 @@ namespace MyApp.Core.Models
                 {
                     _al.Add(new SqlParameter("@id_usuario", SqlDbType.Int) { Value = pUser.Id });
                     DAO.Escribir("sp_User_Unblock", _al);
+                    return "User unblocked succesfully";
+                }
+                catch (Exception) { throw; }
+                finally { _al.Clear(); }
+            }
+            public static string ChangePassword(User pUser)
+            {
+                try
+                {
+                    _al.Add(new SqlParameter("@UserId", SqlDbType.Int) { Value = pUser.Id });
+                    _al.Add(new SqlParameter("@password", SqlDbType.Int) { Value = pUser.Password });
+                    DAO.Escribir("sp_User_ChangePassword", _al);
                     return "User unblocked succesfully";
                 }
                 catch (Exception) { throw; }
