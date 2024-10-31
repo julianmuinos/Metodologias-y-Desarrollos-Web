@@ -52,4 +52,18 @@
       </Item>
     </Items>
   </Cart>
+  <Cart>
+    <Usuario>
+      <Nombre>user</Nombre>
+      <Email>user@gmail.com</Email>
+    </Usuario>
+    <Fecha>31/10/2024 16:15:22</Fecha>
+    <Items>
+      <Item>
+        <Producto>Buzo Nike Oversize</Producto>
+        <Precio>280000</Precio>
+        <Cantidad>2</Cantidad>
+      </Item>
+    </Items>
+  </Cart>
 </Carts>

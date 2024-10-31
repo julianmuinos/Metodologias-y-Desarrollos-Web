@@ -64,7 +64,6 @@ namespace MyApp.Core.Models
                     _al.Add(new SqlParameter("@username", SqlDbType.NVarChar) { Value = pUser.Username });
                     _al.Add(new SqlParameter("@email", SqlDbType.NVarChar) { Value = pUser.Email });
                     _al.Add(new SqlParameter("@role", SqlDbType.NVarChar) { Value = pUser.Role });
-                    _al.Add(new SqlParameter("@password", SqlDbType.NVarChar) { Value = pUser.Password });
                     DAO.Escribir("sp_User_Modify", _al);
                     return "User modified succesfully";
                 }
